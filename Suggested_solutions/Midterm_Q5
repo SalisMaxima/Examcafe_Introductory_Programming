@@ -1,0 +1,45 @@
+"""Made by: Mathias Herløv Lund 03/12/2023 
+    Description:
+    You want to check if a set of dice throws is fair by answering three questions: Which number appears the most? How
+    many times does it appear? What’s the expected number of times for each number to be thrown?
+    Your task is to write a function that takes as input a list of numbers from 1 to 6 and returns a 3-element tuple containing:
+    • The number that appears most frequently among the throws.
+    • The number of times this most frequent number appears.
+    • The expected number of times for a number to be thrown, calculated by dividing the number of throws by 6.
+    You can assume that the input list is not empty and contains only numbers from 1 to 6. If there is a tie for the most
+    frequent number, the function should return the smaller number.
+    
+    Input:  a list of numbers from 1 to 6
+    Output: a 3-element tuple containing:
+        • The number that appears most frequently among the throws.
+        • The number of times this most frequent number appears.
+        • The expected number of times for a number to be thrown, calculated by dividing the number of throws by 6.
+"""
+#Import the necessary libraries
+import os
+import numpy as np   
+# Set the directory to C:\Users\mathi\Documents\GitHub\Examcafe_Introductory_Programming\Suggested_solutions 
+# or wherever the file is saved
+os.chdir("C:/Users/mathi/Documents/GitHub/Examcafe_Introductory_Programming/Suggested_solutions")
+
+def dice_fairness(throws):
+    #First we compute the type number of the throws
+    counts = np.bincount(throws)
+    
+    type_number = throws[np.argmax(counts)]
+    
+    #Then we find the number of times the type number appears
+    number_of_times = counts[np.argmax(counts)]
+    
+    #Finally we compute the expected number of times for a number to be thrown
+    expected_number = len(throws)/6
+    
+    return (type_number, number_of_times, expected_number)
+
+#Test the function
+a = [1, 2, 3, 4, 5, 6, 6, 6, 6]
+print(dice_fairness(a))
+
+#Another test with a long list of throws
+b = [1, 2, 3, 4, 5, 6, 6, 6, 6, 1, 2, 3, 4, 5, 6, 6, 6, 6, 1, 2, 3, 4, 5, 6, 6]
+print(dice_fairness(b))
