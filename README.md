@@ -5,7 +5,7 @@ Welcome to the Examcafe_Introductory_Programming repository! This collection is 
 ## Repository Structure
 
 1. **read_me:** You are currently reading the Read_Me file, which serves as a guide to navigate and understand the contents of this repository.
-2. **course_notes:** This folder contains comprehensive notes to reinforce key concepts covered in the course.
+2. **02002_Notes:** This  contains the notes from the course website.
 3. **midterm_test:** Find the midterm test in this section.
 
 ### Subfolders
