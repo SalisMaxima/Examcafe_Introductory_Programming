@@ -29,10 +29,13 @@
 
 #Import the necessary libraries
 import os  
-# Set the directory to C:\Users\mathi\Documents\GitHub\Examcafe_Introductory_Programming\Suggested_solutions 
-# or wherever the file is saved
-os.chdir("C:/Users/mathi/Documents/GitHub/Examcafe_Introductory_Programming/Suggested_solutions")
 
+#Find directory of python file
+path=os.path.dirname(os.path.abspath(__file__))
+#Change directory
+os.chdir(path)
+
+#os.chdir("C:/Users/mathi/Documents/GitHub/Examcafe_Introductory_Programming/Suggested_solutions")
 def typical_successor(text, l):
     # First we convert the text to lower case
     text = text.lower()
