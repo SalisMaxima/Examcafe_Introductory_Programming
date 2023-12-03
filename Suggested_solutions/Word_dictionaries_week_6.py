@@ -21,7 +21,7 @@
 #Import the necessary libraries
 import os  
 import re
-
+import string 
 #Find directory of python file
 path=os.path.dirname(os.path.abspath(__file__))
 #Change directory
@@ -33,8 +33,9 @@ os.chdir(path)
 def word_histogram(lines):
     #First we convert the lines to lower case
     lines = [line.lower() for line in lines]
-    #Then we split the string into a list of words using regular expression
+    
     words = re.findall(r'\b\w+\b', ' '.join(lines))
+    print(words)
     #Then we create a dictionary with the words as keys and the number of times they appear as values
     histogram = {}
     for word in words:
@@ -46,3 +47,4 @@ def word_histogram(lines):
 
 print(word_histogram(['This is the first sentence', 'This is the second sentence']))
 print(word_histogram(['... to be or not to be ? ...']))
+

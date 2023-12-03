@@ -26,7 +26,7 @@ os.chdir(path)
 def first_alarm(water_levels):
     #First we check if the water level is above 2.0 meters
     if max(water_levels) > 2.0:
-        return water_levels.index(max(water_levels))
+        return water_levels.index(max(sorted(water_levels)))
     #If the water level is not above 2.0 meters, we check if the water level has risen by more than 0.2 meters during the last hour, and the resulting water level is higher than 1.5 meters.
     else:
         for i in range(len(water_levels)-1):
