@@ -40,8 +40,8 @@ def typical_successor(text, l):
     # First we convert the text to lower case
     text = text.lower()
     
-    # Then we remove all non-letter characters
-    text = ''.join([i for i in text if i.isalpha()])
+    # Then we remove all non-letter characters and replace them with spaces
+    text = ''.join([' ' if not i.isalpha() else i for i in text])
     
     # Now we find the index of the given letter
     index = text.find(l)
@@ -52,9 +52,9 @@ def typical_successor(text, l):
     
     # If the letter is found, we find the most frequent successor and how many times it appears after the letter
     else:
-       #We find the index of the letter l in the text
+        # We find the index of the letter l in the text
         index = text.find(l)
-        #Then we find and count the successors of l in the text
+        # Then we find and count the successors of l in the text
         counts = {}
         for i in range(index, len(text)-1):
             if text[i] == l:
@@ -62,7 +62,6 @@ def typical_successor(text, l):
                     counts[text[i+1]] += 1
                 else:
                     counts[text[i+1]] = 1
-        print(counts)
         # Finally we find the most frequent successor
         most_frequent = max(counts, key=counts.get)
         
