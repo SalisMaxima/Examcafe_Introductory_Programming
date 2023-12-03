@@ -52,17 +52,18 @@ def typical_successor(text, l):
     
     # If the letter is found, we find the most frequent successor and how many times it appears after the letter
     else:
-        # We find the index of the letter l in the text
-        index = text.find(l)
         # Then we find and count the successors of l in the text
         counts = {}
         for i in range(index, len(text)-1):
             if text[i] == l:
-                if text[i+1] in counts:
+                if text[i+1] == ' ': # If the successor is a space, we skip it
+                    continue
+                elif text[i+1] in counts:
                     counts[text[i+1]] += 1
                 else:
                     counts[text[i+1]] = 1
         # Finally we find the most frequent successor
+        print(counts)
         most_frequent = max(counts, key=counts.get)
         
         return most_frequent
